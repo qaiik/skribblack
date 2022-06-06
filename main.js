@@ -28,6 +28,10 @@ function onwu() {
 let wl = []
 window.pw = []
 document.querySelector("#currentWord").addEventListener("DOMCharacterDataModified", function (event) { onwu() });
+fetch("https://raw.githubusercontent.com/qaiik/skribblack/main/words.json", { mode: "no-cors" }).then(res=>res.json()).then((data)=>{
+  wl = data
+  check()
+})
 function check() {
   requestAnimationFrame(check)
   let w = document.querySelector("#currentWord").innerText;
